@@ -10,3 +10,7 @@
 [DevWeb:children]
 Developer
 WebServer
+
+[WebTest:children]
+WebServer
+TestServer
