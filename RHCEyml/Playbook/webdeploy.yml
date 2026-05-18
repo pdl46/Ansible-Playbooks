@@ -5,4 +5,10 @@
       ansible.builtin.yum:
         name: httpd
         state: latest
+    - name: Start enable httpd service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
 
