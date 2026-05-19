@@ -21,6 +21,13 @@
         src: /home/devops/Ansible-Playbooks/RHCEyml/index.html
         dest: /var/www/html
 
+- name: Access website
+  hosts: localhost
+  tasks:
+    - name: Access the website to verify deployment
+      ansible.builtin.uri:
+        url: http://192.168.64.6
+
 
 
 
