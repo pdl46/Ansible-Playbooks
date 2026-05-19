@@ -10,5 +10,13 @@
         name: httpd
         state: started
         enabled: yes
+    - name: permit traffic http service
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: true
+
+
 
 
