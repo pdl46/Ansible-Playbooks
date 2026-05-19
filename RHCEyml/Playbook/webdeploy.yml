@@ -16,6 +16,10 @@
         permanent: true
         state: enabled
         immediate: true
+    - name: Copy index.html file to /var/www/html
+      ansible.builtin.copy:
+        src: /home/devops/Ansible-Playbooks/RHCEyml/index.html
+        dest: /var/www/html
 
 
 
