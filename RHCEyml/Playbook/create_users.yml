@@ -1,0 +1,14 @@
+- name: Create multiple users using loop and variables
+  hosts: TestServer
+  vars:
+    users:
+      - InfraSupport
+      - LinuxSysAdmin
+      - CloudEngineer
+  tasks:
+    - name: Create multiple users
+      ansible.builtin.user:
+        name: "{{item}}"
+        state: present
+      loop: "{{users}}"
+
