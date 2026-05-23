@@ -1,0 +1,14 @@
+- name: Remove users at once
+  hosts: TestServer
+  vars:
+    users:
+      - LinuxSysAdmin
+      - CloudEngineer
+      - InfraSupport
+  tasks:
+    - name: Remove all users using loop
+      ansible.builtin.user:
+        name: "{{item}}"
+        state: absent
+        remove: yes
+      loop: "{{users}}"
