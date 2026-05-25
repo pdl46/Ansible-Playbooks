@@ -1,0 +1,13 @@
+- name: Remove multiple packages using loop
+  hosts: WebServer
+  vars:
+    packages:
+      - httpd
+      - php
+      - MariaDb
+  tasks:
+    - name: Remove multiple packages
+      ansible.builtin.yum:
+        name: "{{item}}"
+        state: absent
+      loop: "{{packages}}"

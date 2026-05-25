@@ -1,0 +1,16 @@
+[Developer]
+192.168.64.5
+
+[WebServer]
+192.168.64.6
+
+[TestServer]
+192.168.64.7
+
+[DevWeb:children]
+Developer
+WebServer
+
+[WebTest:children]
+WebServer
+TestServer
