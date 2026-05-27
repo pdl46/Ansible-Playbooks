@@ -1,0 +1,15 @@
+- name: Install maraidb package
+  hosts: Developer
+  tasks:
+    - name: Install mariadb package 
+      ansible.builtin.yum:
+        name: mariadb
+        state: present
+      register: db_output
+
+    - name: Print return information from the previous task
+      ansible.builtin.debug:
+        var: db_output
+   
+
+
