@@ -1,0 +1,11 @@
+- name: Copy the jinja2 file to developer host
+  hosts: Developer
+  become: true
+  tasks:
+    - name: copy  a file to /home/devops/ of Developer machine
+      ansible.builtin.template:
+        src: /home/devops/Ansible-Playbooks/index.html.j2
+        dest: /home/devops/
+
+
+
