@@ -24,11 +24,19 @@ create_users.yml
 - create multiple users in host using the loop
 
 remove-users.yml
-- remove users created above using the loop
+- remove users created in create_users.yml using the loop
 
 createusers_vault.yml
 - create multiple users in host
 - ansible vault is used to create the file where a variable is used to store the username and password
 - loop is used to create user and password
 
+createusers_condition.yml
+- create multiple users in multiple hosts
+- defined multiple variables like DevUsers, WebUsers, TestUsers to include multiple users
+- created the users relevant to specific servers like DevUsers in Developer machine, WebUsers in WebServer machine, etc.
+- used conditions and loops
 
+removeuses_condition.yml
+- remove users created in createusers_condition.yml using different variables than above
+- used conditions and loops
