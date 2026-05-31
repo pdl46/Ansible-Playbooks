@@ -1,0 +1,36 @@
+- name: Remove multiple users from multiple hosts
+  hosts: all
+  vars:
+    Developers:
+      - dev1
+      - dev2
+    WebDevelopers:
+      - web1
+      - web2
+    Freelancers:
+      - test1
+      - test2
+  tasks:
+    - name: Remove Developer users from Developer machine
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      loop: "{{ Developers }}"
+      when: inventory_hostname in groups['Developer']
+
+    - name: Remove WebDeveloper users from WebServer 
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      loop: "{{ WebDevelopers }}"
+      when: inventory_hostname in groups['WebServer']
+    
+    - name: Remove Freelancers from TestServer
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      loop: "{{ Freelancers }}"
+      when: inventory_hostname in groups['TestServer']
