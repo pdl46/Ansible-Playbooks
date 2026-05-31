@@ -1,0 +1,33 @@
+- name: Create multiple users in multiple servers
+  hosts: all
+  vars:
+    WebUsers:
+      - web1
+      - web2
+    DevUsers:
+      - dev1
+      - dev2
+    Testusers:
+      - test1
+      - test2
+  tasks:
+    - name: Create multiple users in Developer machine
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ DevUsers }}"
+      when: inventory_hostname in groups['Developer']
+ 
+    - name: Create multiple users in WebServer machine
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ WebUsers }}"
+      when: inventory_hostname in groups['WebServer']
+
+    - name: Create multiple users in TestServer machine
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ Testusers }}"
+      when: inventory_hostname in groups['TestServer']
