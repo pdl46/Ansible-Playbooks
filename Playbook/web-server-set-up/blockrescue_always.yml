@@ -1,0 +1,24 @@
+- name: Install packages using block, rescue and always
+  hosts: WebServer
+  vars:
+    htpkg: httpd
+    ngpkg: nginx
+    mrpkg: mariadb
+  tasks:
+    - name: Set up Web server
+      block:
+        - name: Install {{ htpkg }} package
+          ansible.builtin.yum:
+            name: " {{ htpkg }}"
+            state: latest
+      rescue:
+        - name: "{{ ngpkg }}"
+          ansible.builtin.yum:
+            name: "{{ ngpkg }}"
+            state: latest
+      always:
+        - name: Install {{ mrpkg }} package
+          ansible.builtin.yum:
+            name: "{{ mrpkg }}"
+            state: latest
+               
