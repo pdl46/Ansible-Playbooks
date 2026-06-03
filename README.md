@@ -1,20 +1,27 @@
 # Ansible-Playbooks
 A collection of Ansible playbooks for automating Linux infrastructure configuration, service management, and system hardening. This repository consists of:
 
-- Playbook directory
-- ansible.cfg file
-- inventory file 
-- jinja file
-- .gitignore file
+## Repository Structure
 
-This repository consists of the following sub-directories:
+This repository includes the follwoing files and directories:
 
-1. web-server-set-up
+- Playbook directory - collection of .yml files for specific automation tasks
+- ansible.cfg file - ansible configuration file
+- inventory file - Hosts inventory file
+- jinja2 template for dynamic configuration
+- .gitignore - Git ignore rules
 
-- This directory consists of:
+## Directories and Playbooks
 
-webdeploy.yml
-- installs httpd package, start and enable httpd service, enable firewall for the httpd service, and copy index.html file to the WebServ  er
+###1. web-server-set-up
+
+Contains playbooks to deploy and configure web servers.
+
+  - **'webdeploy.yml'**
+    - Installs the httpd package
+    - Starts and enables the httpd service
+    - Configures the firewall rules to allow HTTP traffic
+    - Copies a custom 'index.html' file to the web server host
 
 2. user-management
 
