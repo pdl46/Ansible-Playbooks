@@ -1,0 +1,10 @@
+- name: Create files in all of the hosts
+  hosts: all
+  tasks:
+    - name: Create the file in all three hosts
+      ansible.builtin.file:
+        path: /etc/prod.conf
+        state: touch
+        owner: devops
+        group: devops
+        mode: '0600'
