@@ -1,49 +1,49 @@
-# Ansible-Playbooks
-A collection of Ansible playbooks for automating Linux infrastructure configuration, service management, and system hardening. This repository consists of:
+# Ansible Playbooks
+
+A comprehensive collection of Ansible playbooks for automating Linux infrastructure configuration, service management, and system hardening.
 
 ## Repository Structure
 
-This repository includes the follwoing files and directories:
+This repository includes the following key components:
 
-- Playbook directory - collection of .yml files for specific automation tasks
-- ansible.cfg file - ansible configuration file
-- inventory file - Hosts inventory file
-- jinja2 template for dynamic configuration
-- .gitignore - Git ignore rules
+- `ansible.cfg` — Ansible configuration file  
+- `inventory` — Hosts inventory file  
+- Jinja2 templates for dynamic configuration  
+- `.gitignore` — Git ignore rules  
+- Playbook directories organized by functionality  
 
-## Directories and Playbooks
+## Directory Overview
 
-###1. web-server-set-up
+### 1. web-server-set-up
 
-Contains playbooks to deploy and configure web servers.
+Playbooks for deploying and configuring web servers.
 
-  - **'webdeploy.yml'**
-    - Installs the httpd package
-    - Starts and enables the httpd service
-    - Configures the firewall rules to allow HTTP traffic
-    - Copies a custom 'index.html' file to the web server host
+- **`webdeploy.yml`**  
+  - Installs the Apache HTTP Server (`httpd`) package  
+  - Starts and enables the `httpd` service  
+  - Configures firewall rules to allow HTTP traffic  
+  - Deploys a custom `index.html` file to the web server root  
 
-2. user-management
+### 2. user-management
 
-- This directory consists of :
+Playbooks for managing user accounts with advanced features.
 
-create_users.yml
-- create multiple users in host using the loop
+- **`create_users.yml`**  
+  - Creates multiple user accounts on hosts using loops  
 
-remove-users.yml
-- remove users created in create_users.yml using the loop
+- **`remove-users.yml`**  
+  - Removes users created by `create_users.yml`  
 
-createusers_vault.yml
-- create multiple users in host
-- ansible vault is used to create the file where a variable is used to store the username and password
-- loop is used to create user and password
+- **`createusers_vault.yml`**  
+  - Creates users with credentials securely stored using Ansible Vault  
+  - Uses variables for usernames and passwords  
+  - Loops through user creation and password assignment  
 
-createusers_condition.yml
-- create multiple users in multiple hosts
-- defined multiple variables like DevUsers, WebUsers, TestUsers to include multiple users
-- created the users relevant to specific servers like DevUsers in Developer machine, WebUsers in WebServer machine, etc.
-- used conditions and loops
+- **`createusers_condition.yml`**  
+  - Creates users on multiple hosts based on user groups such as `DevUsers`, `WebUsers`, `TestUsers`  
+  - Assigns users to relevant servers using conditional logic and loops  
 
-removeuses_condition.yml
-- remove users created in createusers_condition.yml using different variables than above
-- used conditions and loops
+- **`removeusers_condition.yml`**  
+  - Removes users created by `createusers_condition.yml`  
+  - Uses conditions and loops for precise user removal  
+
