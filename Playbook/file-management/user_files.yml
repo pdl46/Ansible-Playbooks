@@ -8,3 +8,4 @@
         owner: devops
         group: devops
         mode: '0600'
+        setype: httpd_sys_content_t
