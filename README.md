@@ -47,3 +47,36 @@ Playbooks for managing user accounts with advanced features.
   - Removes users created by `createusers_condition.yml`  
   - Uses conditions and loops for precise user removal  
 
+### 3. file-management
+
+- **`user_files.yml`**
+  - Creates a touch file in hosts with user permissions defined
+  - Enables SE Linux on the file
+
+### 4. service-management
+
+- **`userpackage.yml`**
+  - Creates multiple users and packages in multiple hosts
+  - Eg: CloudEngineer user in Developer host, httpd package in WebServer host, etc.
+
+- **`multiplepackages.yml`**
+  - Defines a separate variable for each of the packages
+  - Installs packages using the variables defined above in WebServer host
+
+- **`removepackages.yml`**
+  - Defines a single variable list for all of the packages
+  - Removes the packaes installed through multiplepackages.yml using a loop
+
+- **`debugvariable.yml`**
+  - Installs mariadb package in Developer machine
+  - Uses the register variable to print the infomration using debug module
+
+- **`handlers_mariadb.yml`**
+  - Installs mariadb server in WebServer machine
+  - Starts and enables the mariadb service
+  - Copies the mariadb conf file to remote host
+  - Uses handlers to restart the mariadb server only when conf file is changed
+
+- **`templatemodule.yml`**
+  - Uses a template module to copy the jina2 file to the Developer machine
+
