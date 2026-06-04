@@ -80,3 +80,10 @@ Playbooks for managing user accounts with advanced features.
 - **`templatemodule.yml`**
   - Uses a template module to copy the jina2 file to the Developer machine
 
+### 4. firewall-config
+
+- **`removehttpd.yml`**
+  - Stops and Disable httpd service
+  - Disables firewall for httpd service
+  - Removes httpd package
+  - Removes index.html file from remote host
