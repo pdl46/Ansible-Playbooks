@@ -1,0 +1,9 @@
+- name: Create multiple sub-directories at one time
+  hosts: all
+  tasks:
+    - name: Create sub-directories
+      ansible.builtin.file:
+        path: /home/devops/RHCE/Labs/Exam
+        state: directory
+        recurse: yes
+        mode: 0755
