@@ -1,0 +1,8 @@
+- name: Create a softlink
+  hosts: all
+  tasks:
+    - name: Create a softlink of /etc/passwd
+      ansible.builtin.file:
+        src: /etc/passwd
+        dest: /home/devops/softpass
+        state: link
