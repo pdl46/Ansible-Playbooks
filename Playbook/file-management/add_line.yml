@@ -1,0 +1,8 @@
+- name: Create a file named addedfile in all of the hosts
+  hosts: all
+  tasks:
+    - name: Add a line to a file if the file does not exist
+      ansible.builtin.lineinfile:
+        path: /home/devops/addedfile
+        line: This is an added line
+        create: yes
